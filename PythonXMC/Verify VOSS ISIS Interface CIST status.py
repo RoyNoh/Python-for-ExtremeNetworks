@@ -50,4 +50,5 @@ def main():
         print ("Port {}/{} is an NNI port".format(port.get("SLOT"),port.get("PORT")))
         print ("Cist on port {}/{} is {}d\n".format(port.get("SLOT"),port.get("PORT"),port.get("STATUS")))
 
-main()
+if __name__ == '__builtin__':
+    main()
