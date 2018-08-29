@@ -36,7 +36,7 @@ def list_isis_enabled_ports():
 #Verify CIST status of a port. Return a value for a key, STATUS
 def verify_NNI_MSTP_conf(slot,port):
     cli_results2 = emc_cli.send('show spanning-tree mstp port config '+slot+'/'+port).getOutput()
-    re_pattern_str = r"Cist\sPort\sforce-port-state\s+:\s(?P<{}>\D+e)".format("STATUS")
+    re_pattern_str = r"Cist\sPort\sforce-port-state\s+:\s(?P<{}>\w+)".format("STATUS")
     re_pattern = re.compile(re_pattern_str)
     match_groups = re_pattern.finditer(cli_results2)
     return match_groups.next().group("STATUS")
